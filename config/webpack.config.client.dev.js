@@ -1,14 +1,14 @@
-'use strict';
+'use strict'
 
-const autoprefixer = require('autoprefixer');
-const path = require('path');
-const webpack = require('webpack');
-const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
-const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
-const paths = require('./paths');
-const getClientEnvironment = require('./env');
+const autoprefixer = require('autoprefixer')
+const path = require('path')
+const webpack = require('webpack')
+const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
+const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin')
+const paths = require('./paths')
+const getClientEnvironment = require('./env')
 
-const base = require('./webpack.config.base');
+const base = require('./webpack.config.base')
 
 const config = Object.assign({}, base)
 
@@ -29,7 +29,7 @@ config.entry = [
   // Errors should be considered fatal in development
   require.resolve('react-error-overlay'),
   // Finally, this is your app's code:
-  paths.appIndexJs,
+  paths.appIndexJs
   // We include the app code last so that if there is a runtime error during
   // initialization, it doesn't blow up the WebpackDevServer client, and
   // changing JS code would still trigger a refresh.
@@ -52,7 +52,7 @@ config.output = {
   hotUpdateMainFilename: 'static/[hash].hot-update.json',
   // Point sourcemap entries to original disk location
   devtoolModuleFilenameTemplate: info =>
-    path.resolve(info.absoluteResourcePath),
+    path.resolve(info.absoluteResourcePath)
 }
 
 config.module.rules = config.module.rules.concat([
@@ -68,8 +68,8 @@ config.module.rules = config.module.rules.concat([
       {
         loader: require.resolve('css-loader'),
         options: {
-          importLoaders: 1,
-        },
+          importLoaders: 1
+        }
       },
       {
         loader: require.resolve('postcss-loader'),
@@ -82,15 +82,15 @@ config.module.rules = config.module.rules.concat([
                 '>1%',
                 'last 4 versions',
                 'Firefox ESR',
-                'not ie < 9', // React doesn't support IE8 anyway
+                'not ie < 9' // React doesn't support IE8 anyway
               ],
-              flexbox: 'no-2009',
-            }),
-          ],
-        },
-      },
-    ],
-  },
+              flexbox: 'no-2009'
+            })
+          ]
+        }
+      }
+    ]
+  }
 ])
 
 config.plugins = config.plugins.concat([
@@ -104,14 +104,14 @@ config.plugins = config.plugins.concat([
   // to restart the development server for Webpack to discover it. This plugin
   // makes the discovery automatic so you don't have to restart.
   // See https://github.com/facebookincubator/create-react-app/issues/186
-  new WatchMissingNodeModulesPlugin(paths.appNodeModules),
+  new WatchMissingNodeModulesPlugin(paths.appNodeModules)
 ])
 
 // Turn off performance hints during development because we don't do any
 // splitting or minification in interest of speed. These warnings become
 // cumbersome.
 config.performance = {
-  hints: false,
+  hints: false
 }
 
 // Some libraries import Node modules but don't use them in the browser.
@@ -119,7 +119,7 @@ config.performance = {
 config.node = {
   fs: 'empty',
   net: 'empty',
-  tls: 'empty',
+  tls: 'empty'
 },
 
 module.exports = config

@@ -13,6 +13,7 @@
   "dependencies": {
     "express": "^4.15.3",
     "prop-types": "^15.5.10",
+    "raf": "^3.3.2",
     "react": "^16.0.0",
     "react-context-component": "^0.0.3",
     "react-dom": "^16.0.0",
@@ -33,6 +34,8 @@
     "cross-env": "^5.0.0",
     "css-loader": "0.28.1",
     "dotenv": "4.0.0",
+    "enzyme": "^3.0.0",
+    "enzyme-adapter-react-16": "^1.0.0",
     "eslint": "3.19.0",
     "eslint-config-react-app": "^1.0.4",
     "eslint-loader": "1.7.1",
@@ -54,6 +57,7 @@
     "promise": "8.0.1",
     "react-dev-utils": "4.1.0",
     "react-error-overlay": "^1.0.7",
+    "react-test-renderer": "^16.0.0",
     "style-loader": "0.17.0",
     "sw-precache-webpack-plugin": "0.9.1",
     "uglifyjs-webpack-plugin": "^1.0.0-beta.2",
@@ -68,7 +72,8 @@
       "src/**/*.{js,jsx}"
     ],
     "setupFiles": [
-      "<rootDir>/config/polyfills.js"
+      "<rootDir>/config/polyfills.js",
+      "raf/polyfill"
     ],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.js?(x)",
@@ -86,6 +91,29 @@
     ],
     "moduleNameMapper": {
       "^react-native$": "react-native-web"
+    }
+  },
+  "standard": {
+    "globals": [
+      "_",
+      "afterEach",
+      "baseDir",
+      "beforeEach",
+      "context",
+      "describe",
+      "expect",
+      "gtmTrack",
+      "it",
+      "moment",
+      "mount",
+      "sandbox",
+      "sinon",
+      "shallow",
+      "React",
+      "CustomEvent"
+    ],
+    "env": {
+      "mocha": true
     }
   },
   "babel": {

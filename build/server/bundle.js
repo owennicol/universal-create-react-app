@@ -214,10 +214,10 @@ module.exports = require("react-context-component");
 
 
 var DEV = "production" === 'development';
-var assetManifest = JSON.parse("{\"main.css\":\"static/css/main.cacbacc7.css\",\"main.css.map\":\"static/css/main.cacbacc7.css.map\",\"main.js\":\"static/js/main.bc387a81.js\",\"static/media/logo.svg\":\"static/media/logo.5d5d9eef.svg\"}" || '{}');
+var assetManifest = JSON.parse("{\"main.css\":\"static/css/main.cacbacc7.css\",\"main.css.map\":\"static/css/main.cacbacc7.css.map\",\"main.js\":\"static/js/main.e719e44f.js\",\"static/media/logo.svg\":\"static/media/logo.5d5d9eef.svg\"}" || '{}');
 var bundleUrl = DEV ? '/static/js/bundle.js' : '/' + assetManifest['main.js'];
-var css = DEV ? '' : // in DEV the css is hot loaded
-'<link href="/' + assetManifest['main.css'] + '" media="all" rel="stylesheet" />';
+var css = DEV ? '' // in DEV the css is hot loaded
+: '<link href="/' + assetManifest['main.css'] + '" media="all" rel="stylesheet" />';
 
 /* harmony default export */ __webpack_exports__["a"] = (function (component) {
   return '\n  <!DOCTYPE html>\n    <html lang="en">\n      <head>\n        <meta charset="utf-8">\n        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">\n        <meta name="theme-color" content="#000000">\n        ' + css + '\n        <link rel="manifest" href="/public/manifest.json">\n        <link rel="shortcut icon" href="/public/favicon.ico">\n        <title>React App</title>\n      </head>\n      <body>\n        <div id="root">' + Object(__WEBPACK_IMPORTED_MODULE_0_react_dom_server__["renderToString"])(component) + '</div>\n        <script type="application/javascript" src="' + bundleUrl + '"></script>\n      </body>\n  </html>\n';
