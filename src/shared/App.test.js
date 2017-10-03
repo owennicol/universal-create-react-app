@@ -3,7 +3,11 @@ import { shallow } from 'enzyme'
 import App from './App'
 
 describe('App component', () => {
-  it('renders without crashing', () => {
-    shallow(<App />)
+  let component
+  beforeEach(() => {
+    component = shallow(<App />)
+  })
+  it('Exists', () => {
+    expect(component.exists()).toBeTruthy()
   })
 })
