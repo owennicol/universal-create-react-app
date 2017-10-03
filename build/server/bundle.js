@@ -214,7 +214,7 @@ module.exports = require("react-context-component");
 
 
 var DEV = "production" === 'development';
-var assetManifest = JSON.parse("{\"main.css\":\"static/css/main.cacbacc7.css\",\"main.css.map\":\"static/css/main.cacbacc7.css.map\",\"main.js\":\"static/js/main.e719e44f.js\",\"static/media/logo.svg\":\"static/media/logo.5d5d9eef.svg\"}" || '{}');
+var assetManifest = JSON.parse("{\"main.css\":\"static/css/main.cacbacc7.css\",\"main.css.map\":\"static/css/main.cacbacc7.css.map\",\"main.js\":\"static/js/main.ee053170.js\",\"static/media/logo.svg\":\"static/media/logo.5d5d9eef.svg\"}" || '{}');
 var bundleUrl = DEV ? '/static/js/bundle.js' : '/' + assetManifest['main.js'];
 var css = DEV ? '' // in DEV the css is hot loaded
 : '<link href="/' + assetManifest['main.css'] + '" media="all" rel="stylesheet" />';
