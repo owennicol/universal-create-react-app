@@ -1,67 +1,13 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-
 import {
   Route,
-  Switch,
-  Link
+  Switch
 } from 'react-router-dom'
 
-import logo from './logo.svg'
-
-const Header = () => (
-  <div className='App-header'>
-    <img src={logo} className='App-logo' alt='logo' />
-    <h2>Welcome to Universal React</h2>
-  </div>
-)
-
-export const PageNotFound = (props, context = {}) => {
-  if (context.setStatus) {
-    context.setStatus(404)
-  }
-
-  return (
-    <div>
-      <h1>
-        Page not found
-      </h1>
-      <Link to='/'>
-        Go home
-      </Link>
-    </div>
-  )
-}
-PageNotFound.contextTypes = {
-  setStatus: PropTypes.func.isRequired
-}
-
-const TestRouterPage = ({ match }) => (
-  <div className='App-intro'>
-    <p>
-      Test page {match.params.id}
-    </p>
-    <p>
-      <Link to={`/`}>
-      Home
-    </Link>
-    </p>
-    <p>
-      <Link to={`/aljlskaklksdkfaj falsflasd`}>
-        Go to non-existent page
-      </Link>
-    </p>
-  </div>
-)
-
-const Home = () => (
-  <div className='App-intro'>
-    <p>To get started, edit <code>src/shared/App.js</code> and save to reload.</p>
-    <Link to={`/test/123`}>
-      Test the router
-    </Link>
-  </div>
-)
+import Header from '../shared/components/Header'
+import Home from '../shared/components/Home'
+import PageNotFound from '../shared/components/PageNotFound'
+import TestRouterPage from '../shared/components/TestRouterPage'
 
 const App = () => (
   <div className='App'>

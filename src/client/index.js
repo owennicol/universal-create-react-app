@@ -8,7 +8,7 @@ import App from '../shared/App'
 import registerServiceWorker from './registerServiceWorker'
 import './index.css'
 
-ReactDOM.render(
+ReactDOM.hydrate(
   <Router>
     <App />
   </Router>,

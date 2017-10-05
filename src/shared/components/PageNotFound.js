@@ -19,7 +19,7 @@ const PageNotFound = (props, context = {}) => {
   )
 }
 PageNotFound.contextTypes = {
-  setStatus: PropTypes.func.isRequired
+  setStatus: PropTypes.func
 }
 
 export default PageNotFound
