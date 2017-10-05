@@ -36,45 +36,12 @@ PageNotFound.contextTypes = {
   setStatus: PropTypes.func.isRequired
 }
 
-const TestRouterPage = ({ match }) => (
-  <div className='App-intro'>
-    <p>
-      Test page {match.params.id}
-    </p>
-    <p>
-      <Link to={`/`}>
-      Home
-    </Link>
-    </p>
-    <p>
-      <Link to={`/aljlskaklksdkfaj falsflasd`}>
-        Go to non-existent page
-      </Link>
-    </p>
-  </div>
-)
-
-const Home = () => (
-  <div className='App-intro'>
-    <p>To get started, edit <code>src/shared/App.js</code> and save to reload.</p>
-    <Link to={`/test/123`}>
-      Test the router
-    </Link>
-  </div>
-)
-
-const App = () => (
+const App = ({children}) => (
   <div className='App'>
-    <Route path='/' component={({ match }) => (
-      <div>
-        <Header />
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/test/:id' component={TestRouterPage} />
-          <Route component={PageNotFound} />
-        </Switch>
-      </div>
-    )} />
+    <div>
+      <Header />
+      {children}
+    </div>
   </div>
 )
 

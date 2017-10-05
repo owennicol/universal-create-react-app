@@ -89,18 +89,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 var host = "localhost" || 'localhost';
-var serverPort =  false ? process.env.REACT_APP_SERVER_PORT : "8080" || 80;
+var serverPort =  true ? "5678" : process.env.REACT_APP_PORT || 80;
 
 var app = __WEBPACK_IMPORTED_MODULE_0_express___default()();
 
-if (true) {
+if (false) {
   // In production we want to serve our JavaScripts from a file on the file
   // system.
-  app.use('/static', __WEBPACK_IMPORTED_MODULE_0_express___default.a.static(__WEBPACK_IMPORTED_MODULE_1_path___default.a.join(process.cwd(), 'build/client/static')));
+  app.use('/static', express.static(path.join(process.cwd(), 'build/client/static')));
 } else {
   // Otherwise we want to proxy the webpack development server.
-  app.use(['/static', '/sockjs-node'], proxy({
-    target: 'http://localhost:' + process.env.REACT_APP_CLIENT_PORT,
+  app.use(['/static', '/sockjs-node'], __WEBPACK_IMPORTED_MODULE_2_http_proxy_middleware___default()({
+    target: 'http://localhost:' + "3002",
     ws: true,
     logLevel: 'error'
   }));
@@ -144,6 +144,9 @@ module.exports = require("http-proxy-middleware");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_context_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_context_component__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__render__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_App__ = __webpack_require__(10);
+var _jsxFileName = '/Users/owen.nicol/Documents/Owen/universal-create-react-app/src/server/app.js',
+    _this = this;
+
 
 
 
@@ -154,7 +157,13 @@ module.exports = require("http-proxy-middleware");
 var ErrorPage = function ErrorPage() {
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
     'h1',
-    null,
+    {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 8
+      },
+      __self: _this
+    },
     'Oops there was an error'
   );
 };
@@ -171,11 +180,27 @@ var reactApp = function reactApp(req, res) {
   try {
     HTML = Object(__WEBPACK_IMPORTED_MODULE_3__render__["a" /* default */])(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       __WEBPACK_IMPORTED_MODULE_2_react_context_component___default.a,
-      { setStatus: setStatus },
+      { setStatus: setStatus, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 21
+        },
+        __self: _this
+      },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         __WEBPACK_IMPORTED_MODULE_1_react_router__["StaticRouter"],
-        { context: {}, location: req.url },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__shared_App__["a" /* default */], null)
+        { context: {}, location: req.url, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 22
+          },
+          __self: _this
+        },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__shared_App__["a" /* default */], {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 23
+          },
+          __self: _this
+        })
       )
     ));
   } catch (error) {
@@ -213,8 +238,8 @@ module.exports = require("react-context-component");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_dom_server___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react_dom_server__);
 
 
-var DEV = "production" === 'development';
-var assetManifest = JSON.parse("{\"main.css\":\"static/css/main.cacbacc7.css\",\"main.css.map\":\"static/css/main.cacbacc7.css.map\",\"main.js\":\"static/js/main.ee053170.js\",\"static/media/logo.svg\":\"static/media/logo.5d5d9eef.svg\"}" || '{}');
+var DEV = "development" === 'development';
+var assetManifest = JSON.parse(Object({"NODE_ENV":"development","PUBLIC_URL":"","REACT_APP_HOST":"localhost","REACT_APP_PORT":"8080","REACT_APP_CLIENT_PORT":"3002"}).REACT_APP_ASSET_MANIFEST || '{}');
 var bundleUrl = DEV ? '/static/js/bundle.js' : '/' + assetManifest['main.js'];
 var css = DEV ? '' // in DEV the css is hot loaded
 : '<link href="/' + assetManifest['main.css'] + '" media="all" rel="stylesheet" />';
@@ -243,6 +268,9 @@ module.exports = require("react-dom/server");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logo_svg__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__logo_svg___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__logo_svg__);
+var _jsxFileName = '/Users/owen.nicol/Documents/Owen/universal-create-react-app/src/shared/App.js',
+    _this = this;
+
 
 
 
@@ -253,11 +281,27 @@ module.exports = require("react-dom/server");
 var Header = function Header() {
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
     'div',
-    { className: 'App-header' },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_3__logo_svg___default.a, className: 'App-logo', alt: 'logo' }),
+    { className: 'App-header', __source: {
+        fileName: _jsxFileName,
+        lineNumber: 13
+      },
+      __self: _this
+    },
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { src: __WEBPACK_IMPORTED_MODULE_3__logo_svg___default.a, className: 'App-logo', alt: 'logo', __source: {
+        fileName: _jsxFileName,
+        lineNumber: 14
+      },
+      __self: _this
+    }),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'h2',
-      null,
+      {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 15
+        },
+        __self: _this
+      },
       'Welcome to Universal React'
     )
   );
@@ -272,15 +316,32 @@ var PageNotFound = function PageNotFound(props) {
 
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
     'div',
-    null,
+    {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 25
+      },
+      __self: _this
+    },
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'h1',
-      null,
+      {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 26
+        },
+        __self: _this
+      },
       'Page not found'
     ),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["Link"],
-      { to: '/' },
+      { to: '/', __source: {
+          fileName: _jsxFileName,
+          lineNumber: 29
+        },
+        __self: _this
+      },
       'Go home'
     )
   );
@@ -289,80 +350,34 @@ PageNotFound.contextTypes = {
   setStatus: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired
 };
 
-var TestRouterPage = function TestRouterPage(_ref) {
-  var match = _ref.match;
+var App = function App(_ref) {
+  var children = _ref.children;
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
     'div',
-    { className: 'App-intro' },
+    { className: 'App', __source: {
+        fileName: _jsxFileName,
+        lineNumber: 40
+      },
+      __self: _this
+    },
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      'p',
-      null,
-      'Test page ',
-      match.params.id
-    ),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      'p',
-      null,
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["Link"],
-        { to: '/' },
-        'Home'
-      )
-    ),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      'p',
-      null,
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["Link"],
-        { to: '/aljlskaklksdkfaj falsflasd' },
-        'Go to non-existent page'
-      )
+      'div',
+      {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 41
+        },
+        __self: _this
+      },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Header, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 42
+        },
+        __self: _this
+      }),
+      children
     )
-  );
-};
-
-var Home = function Home() {
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    'div',
-    { className: 'App-intro' },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      'p',
-      null,
-      'To get started, edit ',
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'code',
-        null,
-        'src/shared/App.js'
-      ),
-      ' and save to reload.'
-    ),
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["Link"],
-      { to: '/test/123' },
-      'Test the router'
-    )
-  );
-};
-
-var App = function App() {
-  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    'div',
-    { className: 'App' },
-    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["Route"], { path: '/', component: function component(_ref2) {
-        var match = _ref2.match;
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'div',
-          null,
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Header, null),
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["Switch"],
-            null,
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["Route"], { exact: true, path: '/', component: Home }),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["Route"], { exact: true, path: '/test/:id', component: TestRouterPage }),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["Route"], { component: PageNotFound })
-          )
-        );
-      } })
   );
 };
 
