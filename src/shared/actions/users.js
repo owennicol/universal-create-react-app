@@ -8,7 +8,7 @@ export const fetchUsers = () => (dispatch) => {
     .then(users => {
       dispatch({
         type: 'USERS_LOADED',
-        items: users
+        payload: users
       })
     })
 }
