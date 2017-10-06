@@ -40,8 +40,8 @@ if (!checkRequiredFiles([paths.appIndexJs])) {
 }
 
 // Tools like Cloud9 rely on this.
-const DEFAULT_CLIENT_PORT = parseInt(process.env.PORT, 10) || 3000
-const DEFAULT_SERVER_PORT = parseInt(process.env.PORT, 10) || 5678
+const DEFAULT_CLIENT_PORT = parseInt(process.env.PORT, 10) || 4444
+const DEFAULT_SERVER_PORT = parseInt(process.env.PORT, 10) || 4445
 const HOST = process.env.HOST || '0.0.0.0'
 
 // We attempt to use the default port but if it is busy, we offer the user to
@@ -54,7 +54,7 @@ choosePort(HOST, DEFAULT_CLIENT_PORT)
     }
 
     const protocol = process.env.HTTPS === 'true' ? 'https' : 'http'
-    const appName = require(paths.appPackageJson).name
+    // const appName = require(paths.appPackageJson).name
     const urls = prepareUrls(protocol, HOST, port)
 
     // We do this before importing the wepack.config.client.dev otherwise
