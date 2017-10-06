@@ -7,7 +7,7 @@ import reactApp from './app'
 const host = process.env.REACT_APP_HOST || 'localhost'
 const serverPort = process.env.NODE_ENV === 'development'
   ? process.env.REACT_APP_SERVER_PORT
-  : process.env.REACT_APP_PORT || 80
+  : process.env.REACT_APP_PORT || 8000
 
 const app = express()
 

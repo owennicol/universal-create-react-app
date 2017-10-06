@@ -1,12 +1,36 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-const Home = () => (
-  <div className='App-intro'>
-    <p>To get started, edit <code>src/shared/App.js</code> and save to reload.</p>
-    <Link to={`/test/123`}>
-      Test the router
-    </Link>
-  </div>
-)
+import { connect } from 'react-redux'
 
-export default Home
+import { fetchUsers } from '../actions/users'
+
+const Home = (props) => {
+  return (
+    <div className='App-intro'>
+      <p>
+        <Link to={`/test/123`}>
+          Test the router
+        </Link>
+      </p>
+      <p>
+        <button onClick={props.fetchUsers}>
+          Fetch Users
+        </button>
+      </p>
+    </div>
+  )
+}
+
+function mapStateToProps (state, ownProps) {
+  return {
+    users: state.users
+  }
+}
+
+function mapDispatchToProps (dispatch, ownProps) {
+  return {
+    fetchUsers: () => dispatch(fetchUsers())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
