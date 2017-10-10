@@ -4,20 +4,23 @@ import {
   Switch
 } from 'react-router-dom'
 
-import Header from '../shared/components/Header'
-import Home from '../shared/components/Home'
-import PageNotFound from '../shared/components/PageNotFound'
-import TestRouterPage from '../shared/components/TestRouterPage'
+import asyncComponent from '../shared/components/AsyncComponent'
+import Header from '../shared/components/Header';
+
+const AsyncHome = asyncComponent(() => import('../shared/components/Home'))
+const AsyncPageNotFound = asyncComponent(() => import('../shared/components/PageNotFound'))
+const AsyncTestRouterPage = asyncComponent(() => import('../shared/components/TestRouterPage'))
 
 const App = () => (
   <div className='App'>
     <Route path='/' component={({ match }) => (
       <div>
         <Header />
+        <p>Fish and chicken</p>
         <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/test/:id' component={TestRouterPage} />
-          <Route component={PageNotFound} />
+          <Route exact path='/' component={AsyncHome} />
+          <Route exact path='/test/:id' component={AsyncTestRouterPage} />
+          <Route component={AsyncPageNotFound} />
         </Switch>
       </div>
     )} />
