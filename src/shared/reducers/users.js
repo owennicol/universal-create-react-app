@@ -1,8 +1,9 @@
-export default function reducer (state = {}, action) {
+export default function reducer (state = [], action) {
   switch (action.type) {
     case 'USERS_LOADED':
-      return Object.assign({}, state, action.payload)
-
+      const usersArray = []
+      action.payload.forEach(user => usersArray.push(user))
+      return state.concat(usersArray)
     default:
       return state
   }

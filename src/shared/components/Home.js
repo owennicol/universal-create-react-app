@@ -17,6 +17,7 @@ const Home = (props) => {
           Fetch Users
         </button>
       </p>
+      {props.users.map((user, index) => <p key={`user${user.id}-${index}`}>{user.name}</p>)}
     </div>
   )
 }
