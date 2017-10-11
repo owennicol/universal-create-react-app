@@ -13,7 +13,7 @@ const App = () => (
   <div className='App'>
     <Route path='/' component={({ match }) => (
       <div>
-        <Header />
+        {Header()}
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/test/:id' component={TestRouterPage} />

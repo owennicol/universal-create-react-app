@@ -1,12 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import Helmet from 'react-helmet'
 
 import { fetchUsers, deleteUsers } from '../actions/users'
 
 const Home = (props) => {
   return (
     <div className='App-intro container'>
+      <Helmet>
+        <title>Home</title>
+      </Helmet>
       <p>
         <Link to={`/test/123`}>
           Test the router

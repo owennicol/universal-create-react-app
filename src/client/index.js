@@ -22,7 +22,7 @@ const store = createStore(reducers, window.__INITIAL_STATE__, composeEnhancers(a
 ReactDOM.hydrate(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <App />
+      {App()}
     </ConnectedRouter>
   </Provider>,
   document.getElementById('root')

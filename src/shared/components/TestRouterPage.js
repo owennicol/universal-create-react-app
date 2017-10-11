@@ -1,13 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Helmet from 'react-helmet'
+
 const TestRouterPage = ({ match }) => (
   <div className='App-intro'>
+    <Helmet>
+      <title>Test Router Page</title>
+    </Helmet>
     <p>
       Test page {match.params.id}
     </p>
     <p>
       <Link to={`/`}>
-      Home
+        Home
     </Link>
     </p>
     <p>
