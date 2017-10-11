@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Helmet from 'react-helmet'
 
 import { fetchUsers, deleteUsers } from '../actions/users'
+import { addToBasket } from '../actions/basket'
 
 const Home = (props) => {
   return (
@@ -30,6 +31,7 @@ const Home = (props) => {
                 <th>Name</th>
                 <th>Username</th>
                 <th>Email</th>
+                <th />
               </tr>
             </thead>
             <tbody>
@@ -43,6 +45,13 @@ const Home = (props) => {
                   </td>
                   <td>
                     {user.email}
+                  </td>
+                  <td>
+                    <button
+                      className='btn btn-success'
+                      onClick={() => props.addToBasket(user)}>
+                      Add to basket
+                    </button>
                   </td>
                 </tr>
               )
@@ -64,7 +73,8 @@ function mapStateToProps (state, ownProps) {
 function mapDispatchToProps (dispatch, ownProps) {
   return {
     fetchUsers: () => dispatch(fetchUsers()),
-    deleteUsers: () => dispatch(deleteUsers())
+    deleteUsers: () => dispatch(deleteUsers()),
+    addToBasket: (user) => dispatch(addToBasket(user))
   }
 }
 
