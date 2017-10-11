@@ -2,6 +2,7 @@ import express from 'express'
 import path from 'path'
 import proxy from 'http-proxy-middleware'
 import compression from 'compression'
+import helmet from 'helmet'
 
 import reactApp from './app'
 
@@ -13,7 +14,7 @@ const serverPort = process.env.NODE_ENV === 'development'
 const app = express()
 
 if (process.env.NODE_ENV === 'production') {
-  app.disable('x-powered-by')
+  app.use(helmet())
   app.use(compression())
   // In production we want to serve our JavaScripts from a file on the file
   // system.
