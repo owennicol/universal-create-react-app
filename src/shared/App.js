@@ -8,6 +8,7 @@ import Header from '../shared/components/Header'
 import Home from '../shared/components/Home'
 import PageNotFound from '../shared/components/PageNotFound'
 import TestRouterPage from '../shared/components/TestRouterPage'
+import UserList from '../shared/components/UserList'
 
 const App = () => (
   <div className='App'>
@@ -17,6 +18,7 @@ const App = () => (
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/test/:id' component={TestRouterPage} />
+          <Route exact path='/users' component={UserList} />
           <Route component={PageNotFound} />
         </Switch>
       </div>
