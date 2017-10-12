@@ -33,12 +33,18 @@ body {
   position:fixed;
   top:150px;
   right:0;
-  max-height:calc(80% - 150px);
-  padding:5px;
+  max-height:calc(90% - 150px);
+  padding:10px;
   overflow: scroll;
   background:whitesmoke;
+  min-width: 200px;
 }
-
+.basket-item:not(:last-of-type){
+  margin-bottom: 10px;
+}
+.basket-name{
+  padding-right: 10px;
+}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
