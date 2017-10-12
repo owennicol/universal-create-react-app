@@ -12,8 +12,10 @@
   },
   "dependencies": {
     "express": "^4.15.3",
+    "classnames": "2.2.5",
     "helmet": "3.8.2",
     "history": "^4.7.2",
+    "lodash": "4.17.4",
     "prop-types": "^15.5.10",
     "raf": "^3.3.2",
     "react": "^16.0.0",

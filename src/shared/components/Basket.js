@@ -4,13 +4,14 @@ import { connect } from 'react-redux'
 const Basket = (props) => {
   return (
     <div className='basket'>
-      <p>BASKET</p>
+      <h4>Basket</h4>
+      {props.basket.map((item, key) => (<p key={`basket-item-${item.id}-${item.name}`}>{item.name}</p>))}
     </div>
   )
 }
 
 function mapStateToProps (state, ownProps) {
-  return {}
+  return {basket: state.basket}
 }
 
 function mapDispatchToProps (dispatch, ownProps) {

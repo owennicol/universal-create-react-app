@@ -29,6 +29,16 @@ body {
   font-size: large;
 }
 
+.basket{
+  position:fixed;
+  top:150px;
+  right:0;
+  max-height:calc(80% - 150px);
+  padding:5px;
+  overflow: scroll;
+  background:whitesmoke;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

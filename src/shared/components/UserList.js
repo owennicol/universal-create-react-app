@@ -1,11 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Helmet from 'react-helmet'
+import _some from 'lodash/some'
 
 import { fetchUsers, deleteUsers } from '../actions/users'
-import { addToBasket } from '../actions/basket'
+import { addToBasket, deleteFromBasket } from '../actions/basket'
 
 const Home = (props) => {
+  const userIsInBasket = (item) => _some(props.basket, item)
   return (
     <div className='App-intro container'>
       <Helmet>
@@ -35,26 +37,37 @@ const Home = (props) => {
               </tr>
             </thead>
             <tbody>
-              {props.users.map((user, index) => (
-                <tr key={`user${user.id}-${index}`}>
-                  <td>
-                    {user.name}
-                  </td>
-                  <td>
-                    {user.username}
-                  </td>
-                  <td>
-                    {user.email}
-                  </td>
-                  <td>
-                    <button
-                      className='btn btn-success'
-                      onClick={() => props.addToBasket(user)}>
-                      Add to basket
-                    </button>
-                  </td>
-                </tr>
-              )
+              {props.users.map((user, index) => {
+                return (
+                  <tr key={`user${user.id}-${index}`}>
+                    <td>
+                      {user.name}
+                    </td>
+                    <td>
+                      {user.username}
+                    </td>
+                    <td>
+                      {user.email}
+                    </td>
+                    <td>
+                      {!userIsInBasket(user) &&
+                        <button
+                          className='btn btn-success'
+                          onClick={() => props.addToBasket(user)}>
+                          Add to basket
+                        </button>
+                      }
+                      {userIsInBasket(user) &&
+                        <button
+                          className='btn btn-danger'
+                          onClick={() => props.deleteFromBasket(user)}>
+                          Delete from basket
+                        </button>
+                      }
+                    </td>
+                  </tr>
+                )
+              }
               )}
             </tbody>
           </table>
@@ -66,7 +79,8 @@ const Home = (props) => {
 
 function mapStateToProps (state, ownProps) {
   return {
-    users: state.users
+    users: state.users,
+    basket: state.basket
   }
 }
 
@@ -74,7 +88,8 @@ function mapDispatchToProps (dispatch, ownProps) {
   return {
     fetchUsers: () => dispatch(fetchUsers()),
     deleteUsers: () => dispatch(deleteUsers()),
-    addToBasket: (user) => dispatch(addToBasket(user))
+    addToBasket: (user) => dispatch(addToBasket(user)),
+    deleteFromBasket: (user) => dispatch(deleteFromBasket(user))
   }
 }
 

@@ -4,6 +4,7 @@ import {
   Switch
 } from 'react-router-dom'
 
+import Basket from '../shared/components/Basket'
 import Header from '../shared/components/Header'
 import Home from '../shared/components/Home'
 import PageNotFound from '../shared/components/PageNotFound'
@@ -15,6 +16,7 @@ const App = () => (
     <Route path='/' component={({ match }) => (
       <div>
         {Header()}
+        <Basket />
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/test/:id' component={TestRouterPage} />
