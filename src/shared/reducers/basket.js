@@ -13,7 +13,7 @@ export default function reducer (state = [], action) {
         ...currentBasket.slice(indexToDelete + 1)
       ]
     case 'DELETE_USERS':
-      return [].concat()
+      return []
     default:
       return state
   }

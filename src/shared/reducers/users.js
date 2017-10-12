@@ -5,7 +5,7 @@ export default function reducer (state = [], action) {
       action.payload.forEach(user => usersArray.push(user))
       return [].concat(usersArray)
     case 'DELETE_USERS':
-      return [].concat()
+      return []
     default:
       return state
   }
