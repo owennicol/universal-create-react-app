@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 const Basket = (props) => {
+  if (!props.basket.length) return null
   return (
     <div className='basket'>
       <h4>Basket</h4>
@@ -11,7 +12,7 @@ const Basket = (props) => {
 }
 
 function mapStateToProps (state, ownProps) {
-  return {basket: state.basket}
+  return { basket: state.basket }
 }
 
 function mapDispatchToProps (dispatch, ownProps) {

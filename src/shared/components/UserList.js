@@ -52,14 +52,14 @@ const Home = (props) => {
                     <td>
                       {!userIsInBasket(user) &&
                         <button
-                          className='btn btn-success'
+                          className='btn btn-block btn-success'
                           onClick={() => props.addToBasket(user)}>
                           Add to basket
                         </button>
                       }
                       {userIsInBasket(user) &&
                         <button
-                          className='btn btn-danger'
+                          className='btn btn-block btn-danger'
                           onClick={() => props.deleteFromBasket(user)}>
                           Delete from basket
                         </button>
