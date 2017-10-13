@@ -8,6 +8,7 @@ import { addToBasket, deleteFromBasket } from '../actions/basket'
 
 const Home = (props) => {
   const userIsInBasket = (item) => _some(props.basket, item)
+  const quantityOptions = [...Array(10)].map((opt, index) => <option value={index + 1}>{index + 1}</option>)
   return (
     <div className='App-intro container'>
       <Helmet>
@@ -33,6 +34,7 @@ const Home = (props) => {
                 <th>Name</th>
                 <th>Username</th>
                 <th>Email</th>
+                <th>Quantity</th>
                 <th />
               </tr>
             </thead>
@@ -48,6 +50,11 @@ const Home = (props) => {
                     </td>
                     <td>
                       {user.email}
+                    </td>
+                    <td>
+                      <select>
+                        {quantityOptions}
+                      </select>
                     </td>
                     <td>
                       {!userIsInBasket(user) &&
