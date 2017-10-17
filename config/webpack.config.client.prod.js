@@ -172,7 +172,8 @@ config.plugins = config.plugins.concat([
 config.node = {
   fs: 'empty',
   net: 'empty',
-  tls: 'empty'
+  tls: 'empty',
+  crypto: false
 }
 
 module.exports = config

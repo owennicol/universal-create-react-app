@@ -6,9 +6,15 @@ import _some from 'lodash/some'
 import { fetchUsers, deleteUsers } from '../actions/users'
 import { addToBasket, deleteFromBasket } from '../actions/basket'
 
+const getQuantityOptions = (user) => (
+  [...Array(10)].map((opt, index) => (
+    <option key={`${user.id}-option${user.id}${index}`} value={index + 1}>{index + 1}</option>)
+  )
+)
+
 const Home = (props) => {
   const userIsInBasket = (item) => _some(props.basket, item)
-  const quantityOptions = [...Array(10)].map((opt, index) => <option value={index + 1}>{index + 1}</option>)
+
   return (
     <div className='App-intro container'>
       <Helmet>
@@ -40,6 +46,7 @@ const Home = (props) => {
             </thead>
             <tbody>
               {props.users.map((user, index) => {
+                const quantityOptions = getQuantityOptions(user)
                 return (
                   <tr key={`user${user.id}-${index}`}>
                     <td>
@@ -52,7 +59,7 @@ const Home = (props) => {
                       {user.email}
                     </td>
                     <td>
-                      <select>
+                      <select defaultValue={user.quantity}>
                         {quantityOptions}
                       </select>
                     </td>
