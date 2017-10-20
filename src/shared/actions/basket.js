@@ -1,13 +1,13 @@
 
-export const addToBasket = (user) => (dispatch) => {
+export const addToBasket = (item) => (dispatch) => {
   return dispatch({
     type: 'ADD_TO_BASKET',
-    payload: user
+    payload: item
   })
 }
-export const deleteFromBasket = (user) => (dispatch) => {
+export const deleteFromBasket = (item) => (dispatch) => {
   return dispatch({
     type: 'DELETE_FROM_BASKET',
-    payload: user
+    payload: item
   })
 }

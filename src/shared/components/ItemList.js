@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Helmet from 'react-helmet'
 import _some from 'lodash/some'
 
-import { fetchItems, deleteItems } from '../actions/items'
+import { fetchItems, deleteItems, changeItemQuantity} from '../actions/items'
 import { addToBasket, deleteFromBasket } from '../actions/basket'
 
 const getQuantityOptions = (item) => (
@@ -28,13 +28,13 @@ const ItemList = (props) => {
         </p>
       }
       {props.items.length > 0 &&
-        <div>
+        <div style={{'overflow': 'scroll'}}>
           <p>
             <button className='btn btn-danger' onClick={props.deleteItems}>
               Delete items
             </button>
           </p>
-          <table className='table table-striped table-bordered'>
+          <table className='table table-striped table-bordered table-sm'>
             <thead>
               <tr>
                 <th>Name</th>
@@ -59,7 +59,7 @@ const ItemList = (props) => {
                       {item.email}
                     </td>
                     <td>
-                      <select defaultValue={item.quantity}>
+                      <select defaultValue={item.quantity} onChange={(e) => props.changeItemQuantity(item, e.target.value)}>
                         {quantityOptions}
                       </select>
                     </td>
@@ -103,7 +103,8 @@ function mapDispatchToProps (dispatch, ownProps) {
     fetchItems: () => dispatch(fetchItems()),
     deleteItems: () => dispatch(deleteItems()),
     addToBasket: (item) => dispatch(addToBasket(item)),
-    deleteFromBasket: (item) => dispatch(deleteFromBasket(item))
+    deleteFromBasket: (item) => dispatch(deleteFromBasket(item)),
+    changeItemQuantity: (item, quantity) => dispatch(changeItemQuantity(item, quantity))
   }
 }
 

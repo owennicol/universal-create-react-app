@@ -6,9 +6,20 @@ export default function reducer (state = [], action) {
         item.quantity = 1
         itemsArray.push(item)
       })
-      return [].concat(itemsArray)
+      return [...itemsArray]
     case 'DELETE_ITEMS':
       return []
+    case 'CHANGE_ITEM_QUANTITY':
+      const {item, quantity} = action.payload
+      const currentItems = [...state]
+      const indexOfItem = currentItems.findIndex(obj => (obj.id === item.id))
+      return [
+        ...currentItems.slice(0, indexOfItem),
+        Object.assign({}, item, {
+          quantity: Number(quantity)
+        }),
+        ...currentItems.slice(indexOfItem + 1)
+      ]
     default:
       return state
   }
