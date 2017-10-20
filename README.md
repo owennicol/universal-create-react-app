@@ -1,4 +1,4 @@
-# universal-create-react-app
+# Universal Create React App
 
 Sample app, bootstrapped from Create React App, utilising the following tech:
 
