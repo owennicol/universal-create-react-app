@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Helmet from 'react-helmet'
 import _some from 'lodash/some'
 
-import { fetchItems, deleteItems, changeItemQuantity} from '../actions/items'
+import { fetchItems, deleteItems, changeItemQuantity } from '../actions/items'
 import { addToBasket, deleteFromBasket } from '../actions/basket'
 
 const getQuantityOptions = (item) => (
@@ -28,7 +28,7 @@ const ItemList = (props) => {
         </p>
       }
       {props.items.length > 0 &&
-        <div style={{'overflow': 'scroll'}}>
+        <div style={{ 'overflow': 'scroll' }}>
           <p>
             <button className='btn btn-danger' onClick={props.deleteItems}>
               Delete items
