@@ -5,12 +5,7 @@ import _some from 'lodash/some'
 
 import { fetchItems, deleteItems, changeItemQuantity } from '../actions/items'
 import { addToBasket, deleteFromBasket } from '../actions/basket'
-
-const getQuantityOptions = (item) => (
-  [...Array(10)].map((opt, index) => (
-    <option key={`item-${item.id}-option-${item.id}-${index}`} value={index + 1}>{index + 1}</option>)
-  )
-)
+import Quantity from './Quantity'
 
 const ItemList = (props) => {
   const itemIsInBasket = (item) => _some(props.basket, item)
@@ -46,7 +41,6 @@ const ItemList = (props) => {
             </thead>
             <tbody>
               {props.items.map((item, index) => {
-                const quantityOptions = getQuantityOptions(item)
                 return (
                   <tr key={`item${item.id}-${index}`}>
                     <td>
@@ -59,9 +53,11 @@ const ItemList = (props) => {
                       {item.email}
                     </td>
                     <td>
-                      <select defaultValue={item.quantity} onChange={(e) => props.changeItemQuantity(item, e.target.value)}>
-                        {quantityOptions}
-                      </select>
+                      <Quantity
+                        onChange={(e) => props.changeItemQuantity(item, e.target.value)}
+                        item={item}
+                        max={10}
+                      />
                     </td>
                     <td>
                       {!itemIsInBasket(item) &&
