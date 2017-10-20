@@ -8,6 +8,7 @@ const Header = () => (
       <img src={logo} className='App-logo' alt='logo' />
     </Link>
     <h2>Welcome to Universal React</h2>
+
   </div>
 )
 

@@ -6,6 +6,7 @@ import {
 
 import Basket from '../shared/components/Basket'
 import Header from '../shared/components/Header'
+import Nav from '../shared/components/Nav'
 import Home from '../shared/components/Home'
 import PageNotFound from '../shared/components/PageNotFound'
 import TestRouterPage from '../shared/components/TestRouterPage'
@@ -16,6 +17,7 @@ const App = () => (
     <Route path='/' component={({ match }) => (
       <div>
         {Header()}
+        {Nav()}
         <Basket />
         <Switch>
           <Route exact path='/' component={Home} />

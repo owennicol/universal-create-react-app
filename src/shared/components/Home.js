@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import Helmet from 'react-helmet'
 
 const Home = (props) => {
@@ -8,16 +7,7 @@ const Home = (props) => {
       <Helmet>
         <title>Home</title>
       </Helmet>
-      <p>
-        <Link to={`/test/123`}>
-          Test the router
-        </Link>
-      </p>
-      <p>
-        <Link to={`/items`}>
-          Items
-        </Link>
-      </p>
+      <h1>Welcome home</h1>
     </div>
   )
 }

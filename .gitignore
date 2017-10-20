@@ -58,6 +58,7 @@ typings/
 .env
 
 build/
+.vscode/
 .DS_Store
 
 
