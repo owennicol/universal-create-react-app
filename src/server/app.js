@@ -28,7 +28,7 @@ const reactApp = (req, res) => {
       <Context setStatus={setStatus}>
         <Provider store={store}>
           <StaticRouter context={{}} location={req.url}>
-            <App />
+            {App()}
           </StaticRouter>
         </Provider>
       </Context>

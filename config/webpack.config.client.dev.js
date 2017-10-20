@@ -119,7 +119,8 @@ config.performance = {
 config.node = {
   fs: 'empty',
   net: 'empty',
-  tls: 'empty'
-},
+  tls: 'empty',
+  crypto: false
+}
 
 module.exports = config

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
 
 const PageNotFound = (props, context = {}) => {
   if (context.setStatus) {
@@ -9,6 +10,9 @@ const PageNotFound = (props, context = {}) => {
 
   return (
     <div>
+      <Helmet>
+        <title>Page not found</title>
+      </Helmet>
       <h1>
         Page not found
       </h1>
