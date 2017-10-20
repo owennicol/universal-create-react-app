@@ -14,8 +14,8 @@ const Home = (props) => {
         </Link>
       </p>
       <p>
-        <Link to={`/users`}>
-          Users
+        <Link to={`/items`}>
+          Items
         </Link>
       </p>
     </div>

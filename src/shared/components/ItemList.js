@@ -3,35 +3,35 @@ import { connect } from 'react-redux'
 import Helmet from 'react-helmet'
 import _some from 'lodash/some'
 
-import { fetchUsers, deleteUsers } from '../actions/users'
+import { fetchItems, deleteItems } from '../actions/items'
 import { addToBasket, deleteFromBasket } from '../actions/basket'
 
-const getQuantityOptions = (user) => (
+const getQuantityOptions = (item) => (
   [...Array(10)].map((opt, index) => (
-    <option key={`${user.id}-option${user.id}${index}`} value={index + 1}>{index + 1}</option>)
+    <option key={`item-${item.id}-option-${item.id}-${index}`} value={index + 1}>{index + 1}</option>)
   )
 )
 
-const Home = (props) => {
-  const userIsInBasket = (item) => _some(props.basket, item)
+const ItemList = (props) => {
+  const itemIsInBasket = (item) => _some(props.basket, item)
 
   return (
     <div className='App-intro container'>
       <Helmet>
-        <title>User List</title>
+        <title>Item List</title>
       </Helmet>
-      {!props.users.length &&
+      {!props.items.length &&
         <p>
-          <button className='btn btn-success' onClick={props.fetchUsers}>
-            Fetch Users
+          <button className='btn btn-success' onClick={props.fetchItems}>
+            Fetch items
           </button>
         </p>
       }
-      {props.users.length > 0 &&
+      {props.items.length > 0 &&
         <div>
           <p>
-            <button className='btn btn-danger' onClick={props.deleteUsers}>
-              Delete Users
+            <button className='btn btn-danger' onClick={props.deleteItems}>
+              Delete items
             </button>
           </p>
           <table className='table table-striped table-bordered'>
@@ -45,36 +45,36 @@ const Home = (props) => {
               </tr>
             </thead>
             <tbody>
-              {props.users.map((user, index) => {
-                const quantityOptions = getQuantityOptions(user)
+              {props.items.map((item, index) => {
+                const quantityOptions = getQuantityOptions(item)
                 return (
-                  <tr key={`user${user.id}-${index}`}>
+                  <tr key={`item${item.id}-${index}`}>
                     <td>
-                      {user.name}
+                      {item.name}
                     </td>
                     <td>
-                      {user.username}
+                      {item.username}
                     </td>
                     <td>
-                      {user.email}
+                      {item.email}
                     </td>
                     <td>
-                      <select defaultValue={user.quantity}>
+                      <select defaultValue={item.quantity}>
                         {quantityOptions}
                       </select>
                     </td>
                     <td>
-                      {!userIsInBasket(user) &&
+                      {!itemIsInBasket(item) &&
                         <button
                           className='btn btn-block btn-success'
-                          onClick={() => props.addToBasket(user)}>
+                          onClick={() => props.addToBasket(item)}>
                           Add to basket
                         </button>
                       }
-                      {userIsInBasket(user) &&
+                      {itemIsInBasket(item) &&
                         <button
                           className='btn btn-block btn-danger'
-                          onClick={() => props.deleteFromBasket(user)}>
+                          onClick={() => props.deleteFromBasket(item)}>
                           Delete from basket
                         </button>
                       }
@@ -93,18 +93,18 @@ const Home = (props) => {
 
 function mapStateToProps (state, ownProps) {
   return {
-    users: state.users,
+    items: state.items,
     basket: state.basket
   }
 }
 
 function mapDispatchToProps (dispatch, ownProps) {
   return {
-    fetchUsers: () => dispatch(fetchUsers()),
-    deleteUsers: () => dispatch(deleteUsers()),
-    addToBasket: (user) => dispatch(addToBasket(user)),
-    deleteFromBasket: (user) => dispatch(deleteFromBasket(user))
+    fetchItems: () => dispatch(fetchItems()),
+    deleteItems: () => dispatch(deleteItems()),
+    addToBasket: (item) => dispatch(addToBasket(item)),
+    deleteFromBasket: (item) => dispatch(deleteFromBasket(item))
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(ItemList)
