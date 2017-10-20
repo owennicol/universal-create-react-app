@@ -9,3 +9,6 @@ Sample app, bootstrapped from Create React App, utilising the following tech:
 - React Helmet
 - Jest
 - Enzyme
+
+
+Used this as a base: https://github.com/leanjscom/universal-create-react-app (thanks leanjs :tada:)
